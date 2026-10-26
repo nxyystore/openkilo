@@ -41,7 +41,9 @@ function transformModel(model: KiloGatewayModel): OpenCodeModel {
   };
 }
 
-export function transformToOpenCodeModels(models: KiloGatewayModel[]): Record<string, OpenCodeModel> {
+export function transformToOpenCodeModels(
+  models: KiloGatewayModel[]
+): Record<string, OpenCodeModel> {
   const result: Record<string, OpenCodeModel> = {};
 
   for (const model of models) {

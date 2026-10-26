@@ -1,7 +1,7 @@
 # OpenKilo
 
-[![npm version](https://img.shields.io/npm/v/openkilo.svg)](https://www.npmjs.com/package/openkilo)
-[![npm downloads](https://img.shields.io/npm/dt/openkilo)](https://www.npmjs.com/package/openkilo)
+[![npm version](https://img.shields.io/npm/v/openkilo.svg)](https://www.npmjs.com/package/@nxyy/openkilo)
+[![npm downloads](https://img.shields.io/npm/dt/@nxyy/openkilo)](https://www.npmjs.com/package/@nxyy/openkilo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Access **40+ free AI models** through Kilo Gateway. Zero-config, no API key required for free models.
@@ -13,7 +13,7 @@ Access **40+ free AI models** through Kilo Gateway. Zero-config, no API key requ
 Paste this into any LLM agent (OpenCode, Claude Code, Cursor, etc.):
 
 ```text
-Install the openkilo plugin by following: https://raw.githubusercontent.com/AnganSamadder/openkilo/main/README.md
+Install the openkilo plugin by following: https://raw.githubusercontent.com/nxyystore/openkilo/main/README.md
 ```
 
 <details>
@@ -23,17 +23,31 @@ To install this plugin, please perform the following steps for the user:
 
 1. **Install the NPM package globally:**
    ```bash
-   npm install -g openkilo
+   bun install -g @nxyy/opencode
    ```
    *Note: This plugin requires no additional setup - free models work instantly.*
 
 2. **Configure OpenCode:**
-   Add `"openkilo"` to the `plugin` array in the user's config file (usually `~/.config/opencode/opencode.json`).
 
+   OpenKilo works with OpenCode v1 and v2. Add it to your user config file (usually `~/.config/opencode/opencode.json`):
+
+   **OpenCode v2** (`plugins` array — recommended):
+   ```json
+   {
+     "plugins": [
+       {
+         "package": "@nxyy/opencode",
+         "options": {}
+       }
+     ]
+   }
+   ```
+
+   **OpenCode v1** (`plugin` array):
    ```json
    {
      "plugin": [
-       "openkilo"
+       "@nxyy/opencode"
      ]
    }
    ```
@@ -47,15 +61,30 @@ To install this plugin, please perform the following steps for the user:
 
 1. **Install via NPM:**
    ```bash
-   npm install -g openkilo
+   bun install -g @nxyy/openkilo
    ```
 
 2. **Enable the Plugin:**
-   Add `"openkilo"` to your `~/.config/opencode/opencode.json`:
+
+   OpenKilo works with OpenCode v1 and v2. Add it to your `~/.config/opencode/opencode.json`:
+
+   **OpenCode v2** (`plugins` array — recommended):
+   ```json
+   {
+     "plugins": [
+       {
+         "package": "@nxyy/opencode",
+         "options": {}
+       }
+     ]
+   }
+   ```
+
+   **OpenCode v1** (`plugin` array):
    ```json
    {
      "plugin": [
-       "openkilo"
+       "@nxyy/opencode"
      ]
    }
    ```
@@ -119,7 +148,7 @@ This opens a browser for OAuth authentication. Alternatively, use an API key:
 ## ❓ Troubleshooting
 
 ### Models Not Showing
-1. Check OpenCode config has `"openkilo"` in the `plugin` array
+1. Check OpenCode config has `"openkilo"` in the `plugins` array (v2) or `plugin` array (v1)
 2. Restart OpenCode
 3. Run `/kilo_refresh` to force refresh the model registry
 

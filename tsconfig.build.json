@@ -1,16 +1,16 @@
 {
-  "extends": "./tsconfig.json",
-  "compilerOptions": {
-    "noEmit": false,
-    "declaration": true,
-    "emitDeclarationOnly": false,
-    "outDir": "dist",
-    "rootDir": "src",
-    "declarationMap": false,
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": false
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["src/**/*.test.ts"]
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "noEmit": false,
+        "declaration": true,
+        "emitDeclarationOnly": false,
+        "outDir": "dist",
+        "rootDir": "src",
+        "declarationMap": false,
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": false
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["src/**/*.test.ts"]
 }

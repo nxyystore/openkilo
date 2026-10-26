@@ -17,7 +17,7 @@ export const kiloLoginTool = tool({
       if (!args.apiKey) {
         return 'Error: API key is required when using api-key method. Usage: kilo_login --method api-key --api-key YOUR_KEY';
       }
-      const result = await loginWithApiKey(args.apiKey);
+      const result = await loginWithApiKey(args.apiKey as string);
       return result.success
         ? `✓ ${result.message}\n\nYou now have access to all Kilo models including paid ones.`
         : `✗ ${result.message}`;
@@ -58,10 +58,10 @@ export const kiloStatusTool = tool({
       }
       if (authData.type === 'oauth') {
         const email = authData.email ?? 'unknown';
-        const expired = import('../auth/storage.js').then((m) =>
+        const expired = await import('../auth/storage.js').then((m) =>
           m.isTokenExpired(authData.expiresAt)
         );
-        const status = (await expired) ? ' (token expired, will refresh on use)' : '';
+        const status = expired ? ' (token expired, will refresh on use)' : '';
         return `✓ Authenticated as ${email}${status}\n\nAll Kilo models (free + paid) are available.`;
       }
     }
